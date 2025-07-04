@@ -13,6 +13,10 @@
     font-weight: 400;
 }
 
+a{
+    text-decoration: none;
+}
+
 header,
 .figurines__addtocart,
 footer{
@@ -22,6 +26,11 @@ footer{
 footer,
 header h2{
     background-color: var(--secondary-color-regular);
+}
+
+h3{
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
 header{
@@ -42,18 +51,6 @@ footer{
     padding-bottom: 0.5rem;
 }
 
-.shop{
-    padding: 0 50px;
-    /* Affichage en grille pour ranger les articles dans un tableau de 3 colones/largeur */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem 1.5rem;
-}
-
-.figurines{
-    border: solid 1px var(--secondary-color-light);
-}
-
 header h1{
     background-color: var(--primary-color);
     padding: 1rem;
@@ -67,6 +64,14 @@ header h2{
     font-size: 1.5rem;
 }
 
+.shop{
+    padding: 0 50px;
+    /* Affichage en grille pour ranger les articles dans un tableau de 3 colones/largeur */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem 1.5rem;
+}
+
 header h1 strong{
     font-weight: 600;
     font-size: 1rem;
@@ -74,6 +79,39 @@ header h1 strong{
 
 header h2 strong{
     font-style: italic;
+}
+
+.figurines{
+    border: solid 1px var(--secondary-color-light);
+    padding: 1rem;
+}
+
+.figurines h3{
+    margin: 0.5rem 0;
+}
+
+.figurines__addtocart{
+    background-color: var(--primary-color);
+    padding: 1rem;
+    margin-top: 1rem;
+    /* Affichage flexible pour mettre les deux groupes de textes de chaques coté */
+    display: flex;
+    justify-content: space-between;
+}
+
+.figurines__bloc-img p{
+    text-transform: uppercase;
+    color: var(--secondary-color-light);
+    margin-top: 1rem;
+    border-bottom: solid 1px var(--secondary-color-light);
+}
+
+.addtocart__price{
+    font-weight: 600;
+}
+
+.addtocart__price--old{
+    text-decoration: line-through;
 }
 
 /* On va créer un pseudo élement avant le footer pour lui donner une tapisserie de fond  */
