@@ -44,6 +44,7 @@ footer{
 
 .shop{
     padding: 0 50px;
+    /* Affichage en grille pour ranger les articles dans un tableau de 3 colones/largeur */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.8rem 1.5rem;
@@ -75,9 +76,12 @@ header h2 strong{
     font-style: italic;
 }
 
+/* On va créer un pseudo élement avant le footer pour lui donner une tapisserie de fond  */
 footer::before{
-    /* background-image: url(../images/deco.png); */
+    /* obliger de lui donner un contenu pour que le pseudo element s'affiche */
+    content: "";
+    background-image: url(../images/deco.png);
     display: block;
-    background-color: #000;
-    height: 10rem;
+    height: 100px;
+    width: 100%;
 }
