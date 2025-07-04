@@ -19,12 +19,38 @@ footer{
     color: var(--light-color);
 }
 
+footer,
+header h2{
+    background-color: var(--secondary-color-regular);
+}
+
 header{
+    /* On veut que tout le header reste visible même en scrollant */
     z-index: 2;
     position: sticky;
     width: 100%;
     top: 0;
     left: 0;
+}
+
+main{
+    padding: 1.5rem 0;
+}
+
+footer{
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+.shop{
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem 1.5rem;
+}
+
+.figurines{
+    border: solid 1px var(--secondary-color-light);
 }
 
 header h1{
@@ -35,7 +61,6 @@ header h1{
 }
 
 header h2{
-    background-color: var(--secondary-color-regular);
     padding: 0.5rem;
     text-align: center;
     font-size: 1.5rem;
@@ -48,4 +73,11 @@ header h1 strong{
 
 header h2 strong{
     font-style: italic;
+}
+
+footer::before{
+    /* background-image: url(../images/deco.png); */
+    display: block;
+    background-color: #000;
+    height: 10rem;
 }
