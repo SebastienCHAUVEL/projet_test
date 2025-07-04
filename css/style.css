@@ -19,6 +19,8 @@ a{
 
 header,
 .figurines__addtocart,
+.figurines__reduction,
+.reduction,
 footer{
     color: var(--light-color);
 }
@@ -72,6 +74,25 @@ header h2{
     gap: 0.8rem 1.5rem;
 }
 
+.reduction{
+    background-color: var(--primary-color);
+    padding: 1rem 0.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
+    /* On veut que la banniere reste visible même en scrollant, sans qu'elle impacte le reste du flux */
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 50%;
+    /* On affiche le texte de façon verticale */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    /* On arrondit les bords de droite de notre bloc pour un effet stylé */
+    border-top-right-radius:  10px;
+    border-bottom-right-radius: 10px;
+}
+
 header h1 strong{
     font-weight: 600;
     font-size: 1rem;
@@ -86,6 +107,10 @@ header h2 strong{
     padding: 1rem;
 }
 
+.figurines__container{
+    position: relative;
+}
+
 .figurines h3{
     margin: 0.5rem 0;
 }
@@ -97,6 +122,24 @@ header h2 strong{
     /* Affichage flexible pour mettre les deux groupes de textes de chaques coté */
     display: flex;
     justify-content: space-between;
+}
+
+.figurines__reduction{
+    background-color: var(--secondary-color-regular);
+    border: solid 3px var(--secondary-color-light);
+    /* on positionne la pastille reduction en haut à droite de son conteneur */
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* On donne une forme ronde à la pastille */
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .figurines__bloc-img p{
