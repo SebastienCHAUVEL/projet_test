@@ -128,7 +128,7 @@ header h2 strong{
 
 .figurines__reduction{
     background-color: var(--secondary-color-regular);
-    border: solid 3px var(--secondary-color-light);
+    border: solid 6px var(--secondary-color-light);
     /* on positionne la pastille reduction en haut à droite de son conteneur */
     position: absolute;
     top: 0;
