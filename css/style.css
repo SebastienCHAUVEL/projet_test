@@ -1,0 +1,13 @@
+/* Définition des variables CSS*/
+:root{
+    --primary-color: #c80000; 
+    --secondary-color-regular: #666;
+    --secondary-color-light: #ccc;
+    --light-color: #ffe;
+}
+
+/* Importation de la police dans le CSS */
+*{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+}
