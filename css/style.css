@@ -14,10 +14,12 @@ body{
 }
 
 a{
-    text-decoration: none;
+    text-decoration: inherit;
+    color: inherit;
 }
 
 header,
+h2,
 .figurines__addtocart,
 .figurines__reduction,
 .reduction,
@@ -26,7 +28,7 @@ footer{
 }
 
 footer,
-header h2{
+h2{
     background-color: var(--secondary-color-regular);
 }
 
@@ -42,11 +44,77 @@ header{
     width: 100%;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-main{
-    padding: 1.5rem 0;
-    animation: wiggle 2s linear 2;
+header nav{
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+header nav details{
+    display: grid;
+    padding: 1rem 1rem;
+    grid-template-rows: 1fr 1fr;
+    text-align: right;
+}
+
+header nav summary{
+    list-style-type: none;
+}
+
+header nav summary:before{
+    content: "➤";
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+header nav details summary:hover{
+    cursor: pointer;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+header nav ul li a{
+    display: inline-block;
+}
+
+header nav ul li a:before{
+    content: "➤";
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+header nav details[open] summary:before,
+header nav ul li a:hover:before{
+    animation: spin-plus-quarter 1250ms linear 1;
+    transform: rotate(90deg);
+}
+
+header nav ul li a:active{
+    animation: scaling 1s linear 1;
+}
+
+@keyframes scaling{
+    from {
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.5);
+    }
 }
 
 footer{
@@ -54,25 +122,37 @@ footer{
     padding-bottom: 0.5rem;
 }
 
+/* On va créer un pseudo élement avant le footer pour lui donner une tapisserie de fond  */
+footer::before{
+    /* obliger de lui donner un contenu pour que le pseudo element s'affiche */
+    content: "";
+    display: block;
+    height: 12px;
+    background-image: url(../images/deco.png);
+}
+
 header h1{
     background-color: var(--primary-color);
     padding: 1rem;
     font-size: 2rem;
     font-weight: 700;
+    width: 70%;
 }
 
-header h2{
+h2{
     padding: 0.5rem;
     text-align: center;
     font-size: 1.5rem;
+    font-weight: 400;
 }
 
 .shop{
-    padding: 0 50px;
+    padding: 1.5rem 50px;
     /* Affichage en grille pour ranger les articles dans un tableau de 3 colones/largeur */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.8rem 1.5rem;
+    animation: wiggle 2s linear 2;
 }
 
 .reduction{
@@ -95,7 +175,17 @@ header h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    transition-duration: 0.5s;
+    transition: 0.5s;
+}
+
+/* On continue de jouer */
+.reduction:hover{
+    width: 50px;
+    height: 150;
+}
+
+.reduction:active{
+    transform: translate(0px, -10px);
 }
 
 .reduction span{
@@ -107,11 +197,7 @@ header h1 strong{
     font-size: 1rem;
 }
 
-header h2{
-    font-weight: 400;
-}
-
-header h2 strong{
+h2 strong{
     font-style: italic;
     font-weight: 400;
 }
@@ -140,59 +226,6 @@ header h2 strong{
     width: 100%;
 }
 
-.figurines__reduction{
-    background-color: var(--secondary-color-regular);
-    border: solid 6px var(--secondary-color-light);
-    /* on positionne la pastille reduction en haut à droite de son conteneur */
-    position: absolute;
-    top: 0;
-    right: 0;
-    /* On donne une forme ronde à la pastille */
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.figurines__reduction:hover{
-    animation-name: example;
-    animation-duration: 2s;
-    transform: translate(0px, -10px);
-}
-
-@keyframes example {
-    from {box-shadow: 5px 5px 3px #777;}
-    to {box-shadow: 0 0 0 #777;}
-}
-
-.figurines__bloc-img p{
-    text-transform: uppercase;
-    color: var(--secondary-color-light);
-    margin-top: 1rem;
-    border-bottom: solid 1px var(--secondary-color-light);
-}
-
-.addtocart__price{
-    font-weight: 700;
-}
-
-.addtocart__price--old{
-    text-decoration: line-through;
-}
-
-/* On va créer un pseudo élement avant le footer pour lui donner une tapisserie de fond  */
-footer::before{
-    /* obliger de lui donner un contenu pour que le pseudo element s'affiche */
-    content: "";
-    display: block;
-    height: 12px;
-    background-image: url(../images/deco.png);
-}
-
 /* Petit effet sympa au survol du bouton */
 .figurines__addtocart:hover{
     animation: wiggle 2s linear infinite;
@@ -211,14 +244,73 @@ footer::before{
     100% {transform: rotateZ(0);}
 }
 
-/* On continue de jouer */
-.reduction:hover{
-    width: 50px;
-    height: 135px;
+.figurines__reduction{
+    background-color: var(--secondary-color-regular);
+    border: solid 6px var(--secondary-color-light);
+    /* on positionne la pastille reduction en haut à droite de son conteneur */
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* On donne une forme ronde à la pastille */
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-.reduction:active{
+/* Keyframes */
+@keyframes spin{
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes spin-plus-quarter{
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(450deg);
+    }
+}
+
+/* Effet d'ombre portée qui s'enleve progressivement */
+.figurines__reduction:hover{
+    animation-name: shadowing;
+    animation-duration: 2s;
     transform: translate(0px, -10px);
+}
+
+.figurines__reduction:active{
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes */
+@keyframes shadowing {
+    from {box-shadow: 5px 5px 3px #777;}
+    to {box-shadow: 0 0 0 #777;}
+}
+
+.figurines__bloc-img p{
+    text-transform: uppercase;
+    color: var(--secondary-color-light);
+    margin-top: 1rem;
+    border-bottom: solid 1px var(--secondary-color-light);
+}
+
+.addtocart__price{
+    font-weight: 700;
+}
+
+.addtocart__price--old{
+    text-decoration: line-through;
 }
 
 
