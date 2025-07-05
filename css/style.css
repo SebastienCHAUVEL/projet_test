@@ -207,6 +207,10 @@ h2 strong{
     padding: 1rem;
 }
 
+.figurines:active{
+    animation: wiggle 2s linear 1;
+}
+
 .figurines__container{
     position: relative;
 }
