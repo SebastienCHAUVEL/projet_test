@@ -7,7 +7,7 @@
 }
 
 /* Importation de la police dans le CSS */
-*{
+body{
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -46,6 +46,7 @@ header{
 
 main{
     padding: 1.5rem 0;
+    animation: wiggle 2s linear 2;
 }
 
 footer{
@@ -91,7 +92,14 @@ header h2{
     /* On arrondit les bords de droite de notre bloc pour un effet stylé */
     border-top-right-radius:  10px;
     border-bottom-right-radius: 10px;
-    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.5s;
+}
+
+.reduction span{
+    font-weight: 600;;
 }
 
 header h1 strong{
@@ -99,8 +107,13 @@ header h1 strong{
     font-size: 1rem;
 }
 
+header h2{
+    font-weight: 400;
+}
+
 header h2 strong{
     font-style: italic;
+    font-weight: 400;
 }
 
 .figurines{
@@ -124,6 +137,7 @@ header h2 strong{
     display: flex;
     justify-content: space-between;
     transition: all 0.2s;
+    width: 100%;
 }
 
 .figurines__reduction{
@@ -142,6 +156,17 @@ header h2 strong{
     align-items: center;
     font-size: 2rem;
     font-weight: 600;
+}
+
+.figurines__reduction:hover{
+    animation-name: example;
+    animation-duration: 2s;
+    transform: translate(0px, -10px);
+}
+
+@keyframes example {
+    from {box-shadow: 5px 5px 3px #777;}
+    to {box-shadow: 0 0 0 #777;}
 }
 
 .figurines__bloc-img p{
@@ -163,10 +188,11 @@ header h2 strong{
 footer::before{
     /* obliger de lui donner un contenu pour que le pseudo element s'affiche */
     content: "";
-    background-image: url(../images/deco.png);
     display: block;
     height: 12px;
+    background-image: url(../images/deco.png);
 }
+
 /* Petit effet sympa au survol du bouton */
 .figurines__addtocart:hover{
     animation: wiggle 2s linear infinite;
@@ -194,3 +220,5 @@ footer::before{
 .reduction:active{
     transform: translate(0px, -10px);
 }
+
+
